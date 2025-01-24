@@ -5,16 +5,15 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+const LUMOZ_TESTNET_CHAIN_ID = 105363;
+const SEPOLIA_CHAIN_ID = 11155111;
+
 const providerApiKey = process.env.PROVIDER_API_KEY;
 const privateKey = process.env.PRIVATE_KEY;
 
 if (!providerApiKey || !privateKey) {
     throw new Error("Missing environment variables");
 }
-// transfer.ts
-const OPSIDE_TESTNET_CHAIN_ID = 51178;
-const RESOURCE_ID =
-    "0x0000000000000000000000000000000000000000000000000000000000000000";
 
 // transfer.ts
 /**
@@ -26,8 +25,7 @@ async function initAssetTransfer(
     provider: providers.JsonRpcProvider,
 ): Promise<EVMAssetTransfer> {
     const assetTransfer = new EVMAssetTransfer();
-    await assetTransfer.init(provider, Environment.MAINNET);
-    console.log(`assetTransfer.config.environment: ${assetTransfer.config.environment}`)
+    await assetTransfer.init(provider, Environment.MAINNET, "https://raw.githubusercontent.com/myronzhangweb3/sygma_test_project/refs/heads/main/config/shared-config-testnet.json");
     return assetTransfer;
 }
 
@@ -42,12 +40,16 @@ export async function erc20Transfer(): Promise<void> {
 
     const assetTransfer = await initAssetTransfer(provider);
 
+    // transfer.ts
+    const RESOURCE_ID =
+        "0x0000000000000000000000000000000000000000000000000000000000000000";
     const transfer = assetTransfer.createFungibleTransfer(
         await wallet.getAddress(),
-        OPSIDE_TESTNET_CHAIN_ID,
+        // SEPOLIA_CHAIN_ID,
+        LUMOZ_TESTNET_CHAIN_ID,
         await wallet.getAddress(),
         RESOURCE_ID,
-        50, // instructions to send 50 tokens
+        5, // instructions to send 50 tokens
     );
 
     const fee = await assetTransfer.getFee(transfer);
@@ -60,6 +62,41 @@ export async function erc20Transfer(): Promise<void> {
         transfer,
         fee,
     );
+
+    const response = await wallet.sendTransaction(
+        transferTx as providers.TransactionRequest,
+    );
+    console.log("Sent transfer with hash: " + response.hash);
+}
+
+// TODO 有问题
+export async function nativeTokenTransfer(): Promise<void> {
+    const provider = new providers.JsonRpcProvider(providerApiKey);
+    const wallet = new Wallet(privateKey as string, provider);
+
+    const assetTransfer = await initAssetTransfer(provider);
+
+    const RESOURCE_ID =
+        "0x0000000000000000000000000000000000000000000000000000000000000000";
+    const transfer = assetTransfer.createFungibleTransfer(
+        await wallet.getAddress(),
+        SEPOLIA_CHAIN_ID,
+        // LUMOZ_TESTNET_CHAIN_ID,
+        await wallet.getAddress(),
+        RESOURCE_ID,
+        8, // instructions to send 50 tokens
+    );
+
+    console.log("transfer:", JSON.stringify(transfer));
+    const fee = await assetTransfer.getFee(transfer);
+
+    const transferTx = await assetTransfer.buildTransferTransaction(
+        transfer,
+        fee,
+    );
+
+    // transfer value
+    transferTx.value = transferTx.value?.add(8)
 
     const response = await wallet.sendTransaction(
         transferTx as providers.TransactionRequest,
