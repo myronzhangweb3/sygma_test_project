@@ -1,0 +1,19 @@
+{
+  "name": "sygma_test_project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "npx ts-node ./src/index.ts"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "ethers": "5.7.2",
+    "sygma-sdk-core-test": "^2.1.4"
+  }
+}
