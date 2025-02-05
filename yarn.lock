@@ -4383,10 +4383,10 @@ swarm-js@^0.1.40:
     tar "^4.0.2"
     xhr-request "^1.0.1"
 
-sygma-sdk-core-test@^2.1.5:
-  version "2.1.5"
-  resolved "https://registry.npmjs.org/sygma-sdk-core-test/-/sygma-sdk-core-test-2.1.5.tgz"
-  integrity sha512-+EfsqHhQsMs8UNJtUS2If3KHgMGki+UHXTG0sPXtFIyK/e09J2mneuxzCHIYrYPygXFqNhyTYfX1nz9PX2v4tQ==
+sygma-sdk-custom-url@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/sygma-sdk-custom-url/-/sygma-sdk-custom-url-1.0.0.tgz"
+  integrity sha512-mhUzk3uAE4p2mw8Sc3S1jye+IsIYtFYA0GKwQVTT1V3dVx/MnzoZlcX6w4LrPgALu/5TI7P+G3R3lTPPad1D5Q==
   dependencies:
     "@buildwithsygma/sygma-contracts" "2.1.2"
     "@ethersproject/abi" "^5.7.0"

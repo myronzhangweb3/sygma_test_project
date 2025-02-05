@@ -1,5 +1,5 @@
 // transfer.ts
-import { EVMAssetTransfer, Environment } from "sygma-sdk-core-test";
+import { EVMAssetTransfer, Environment } from "sygma-sdk-custom-url";
 import { Wallet, providers, ethers } from "ethers";
 import dotenv from "dotenv";
 
@@ -25,7 +25,7 @@ async function initAssetTransfer(
     provider: providers.JsonRpcProvider,
 ): Promise<EVMAssetTransfer> {
     const assetTransfer = new EVMAssetTransfer();
-    await assetTransfer.init(provider, Environment.MAINNET, "https://raw.githubusercontent.com/myronzhangweb3/sygma_test_project/refs/heads/main/config/shared-config-testnet.json");
+    await assetTransfer.init(provider, "https://raw.githubusercontent.com/myronzhangweb3/sygma_test_project/refs/heads/main/config/shared-config-testnet.json");
     return assetTransfer;
 }
 
@@ -69,7 +69,6 @@ export async function erc20Transfer(): Promise<void> {
     console.log("Sent transfer with hash: " + response.hash);
 }
 
-// TODO 有问题
 export async function nativeTokenTransfer(): Promise<void> {
     const provider = new providers.JsonRpcProvider(providerApiKey);
     const wallet = new Wallet(privateKey as string, provider);

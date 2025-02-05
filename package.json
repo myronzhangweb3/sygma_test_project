@@ -14,6 +14,6 @@
   },
   "dependencies": {
     "ethers": "5.7.2",
-    "sygma-sdk-core-test": "^2.1.5"
+    "sygma-sdk-custom-url": "^1.0.0"
   }
 }
