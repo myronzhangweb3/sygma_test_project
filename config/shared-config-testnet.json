@@ -2,70 +2,14 @@
   "domains": [
     {
       "id": 0,
-      "chainId": 11155111,
-      "caipId": "eip155:11155111",
-      "name": "sepolia",
-      "type": "evm",
-      "bridge": "0xee330D8C0174664473840753Fc97d11dd1AA7086",
-      "handlers": [
-        {
-          "type":"erc20",
-          "address": "0x34486B59d03d68E880d48134B6809E9346C50Be6"
-        },
-        {
-          "type": "erc721",
-          "address": "0x1b1E68Da6Aa5746ebb74aFD9bb29dEa0254a2886"
-        },
-        {
-          "type": "permissionlessGeneric",
-          "address": "0xaB7BEE7371ec629C53FC5C342B763F07e85ffd7F"
-        }
-      ],
-      "feeRouter": "0x8e7B682A2b4AB34D7dD34a2A461FfF665BB48c2d",
-      "feeHandlers": [
-        {
-          "address": "0xbf0c40E19FD713C58ABA821fa46B669083Cffc93",
-          "type": "basic"
-        },
-        {
-          "address": "0x8c1600649891cDA421a4459fE3A2Cf46fb3E8fC3",
-          "type": "twap"
-        }
-      ],
-      "nativeTokenSymbol": "eth",
-      "nativeTokenFullName": "ether",
-      "nativeTokenDecimals": 18,
-      "blockConfirmations": 5,
-      "startBlock": 5962175,
-      "resources": [
-        {
-          "resourceId": "0x0000000000000000000000000000000000000000000000000000000000000000",
-          "caip19": "eip155:11155111/erc20:0x44cDE76f09F0Bb81d16d1D9a7762A159D4F39FB7",
-          "type": "fungible",
-          "address": "0x44cDE76f09F0Bb81d16d1D9a7762A159D4F39FB7",
-          "symbol": "M1",
-          "decimals": 18
-        },
-        {
-          "resourceId": "0x0000000000000000000000000000000000000000000000000000000000000001",
-          "caip19": "",
-          "type": "permissionlessGeneric",
-          "address": "",
-          "symbol": "eth",
-          "decimals": 18
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "chainId": 105363,
-      "caipId": "eip155:105363",
-      "name": "lumoz-chain-testnet",
+      "chainId": 421614,
+      "caipId": "eip155:421614",
+      "name": "arbitrum sepolia",
       "type": "evm",
       "bridge": "0x66efeA0Cf97907E8cE51f6739535c88278ce8683",
       "handlers": [
         {
-          "type": "erc20",
+          "type":"erc20",
           "address": "0xdd612E5fAcBE822fcb3eCb44F1B9Bef06Bff2877"
         },
         {
@@ -88,6 +32,70 @@
           "type": "twap"
         }
       ],
+      "nativeTokenSymbol": "eth",
+      "nativeTokenFullName": "ether",
+      "nativeTokenDecimals": 18,
+      "blockConfirmations": 5,
+      "startBlock": 121217600,
+      "resources": [
+        {
+          "resourceId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "caip19": "eip155:421614/erc20:0x3096b62Eac7C3b68f91a9393E46f8eB139c8e063",
+          "type": "fungible",
+          "address": "0x3096b62Eac7C3b68f91a9393E46f8eB139c8e063",
+          "symbol": "MOZ",
+          "decimals": 18
+        },
+        {
+          "resourceId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+          "caip19": "eip155:421614/erc20:0xe1fe6EBDE66A94EAd990a029d8164589B4e66Cb4",
+          "type": "fungible",
+          "address": "0xe1fe6EBDE66A94EAd990a029d8164589B4e66Cb4",
+          "symbol": "esMOZ",
+          "decimals": 18
+        },
+        {
+          "resourceId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "caip19": "",
+          "type": "permissionlessGeneric",
+          "address": "",
+          "symbol": "eth",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "chainId": 105363,
+      "caipId": "eip155:105363",
+      "name": "lumoz-chain-testnet",
+      "type": "evm",
+      "bridge": "0x917C1a277309C0b054ACc17BB6C0106A33BfE7f5",
+      "handlers": [
+        {
+          "type": "erc20",
+          "address": "0xe1d9dd910715Ef69Beff389d9E6cD26d2C0CD1e4"
+        },
+        {
+          "type": "erc721",
+          "address": "0x7456d9AEc1c1f2076701d2F353Ac31FD6FFe8C88"
+        },
+        {
+          "type": "permissionlessGeneric",
+          "address": "0x5D91c3801b81559240175c7f111F73fbF998B27D"
+        }
+      ],
+      "feeRouter": "0x376C02Aea8D4fc8f8DeD433a6D5D6a3c08b13B9B",
+      "feeHandlers": [
+        {
+          "address": "0xb46733Fa02247371Bf9a92a507f7e50Cf385c65c",
+          "type": "basic"
+        },
+        {
+          "address": "0x5a85356eE42F546CBeCE67cd408cd8CB3A5a789D",
+          "type": "twap"
+        }
+      ],
       "nativeTokenSymbol": "moz",
       "nativeTokenFullName": "moz",
       "nativeTokenDecimals": 18,
@@ -99,14 +107,22 @@
           "caip19": "",
           "type": "permissionlessGeneric",
           "address": "",
-          "symbol": "M1",
+          "symbol": "MOZ",
+          "decimals": 18
+        },
+        {
+          "resourceId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+          "caip19": "eip155:105363/erc20:0x407Cc5f03b937F013902CD5e4FC025114381f581",
+          "type": "fungible",
+          "address": "0x407Cc5f03b937F013902CD5e4FC025114381f581",
+          "symbol": "esMOZ",
           "decimals": 18
         },
         {
           "resourceId": "0x0000000000000000000000000000000000000000000000000000000000000001",
-          "caip19": "eip155:105363/erc20:0x872Dde19CEAB4eB819AAda5eBf57700f4a05a370",
+          "caip19": "eip155:105363/erc20:0xDA988D743bF140b1526f3234C4158158c752eB36",
           "type": "fungible",
-          "address": "0x872Dde19CEAB4eB819AAda5eBf57700f4a05a370",
+          "address": "0xDA988D743bF140b1526f3234C4158158c752eB36",
           "symbol": "WETH",
           "decimals": 18
         }
