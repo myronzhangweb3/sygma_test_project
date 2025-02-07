@@ -61,6 +61,13 @@
           "address": "",
           "symbol": "eth",
           "decimals": 18
+        },
+        {
+          "resourceId": "0x0000000000000000000000000000000000000000000000000000000000000004",
+          "caip19": "eip155:421614/erc721:0x5d2068aDA7d5cA43f81f845BAa1EFe5a32ff0B38",
+          "type": "nonfungible",
+          "address": "0x5d2068aDA7d5cA43f81f845BAa1EFe5a32ff0B38",
+          "symbol": "LOGT"
         }
       ]
     },
@@ -125,6 +132,13 @@
           "address": "0xDA988D743bF140b1526f3234C4158158c752eB36",
           "symbol": "WETH",
           "decimals": 18
+        },
+        {
+          "resourceId": "0x0000000000000000000000000000000000000000000000000000000000000004",
+          "caip19": "eip155:105363/erc721:0x7bA729D2d58fdf4731dB170ad08cBC1d7642f9Aa",
+          "type": "nonfungible",
+          "address": "0x7bA729D2d58fdf4731dB170ad08cBC1d7642f9Aa",
+          "symbol": "LOGT"
         }
       ]
     }
