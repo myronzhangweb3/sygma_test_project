@@ -127,9 +127,9 @@
         },
         {
           "resourceId": "0x0000000000000000000000000000000000000000000000000000000000000001",
-          "caip19": "eip155:105363/erc20:0xDA988D743bF140b1526f3234C4158158c752eB36",
+          "caip19": "eip155:105363/erc20:0x9Ab4d03CcA5019C7a386D79Ae855b607D84a698B",
           "type": "fungible",
-          "address": "0xDA988D743bF140b1526f3234C4158158c752eB36",
+          "address": "0x9Ab4d03CcA5019C7a386D79Ae855b607D84a698B",
           "symbol": "WETH",
           "decimals": 18
         },
