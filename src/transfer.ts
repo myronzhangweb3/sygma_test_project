@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const LUMOZ_TESTNET_CHAIN_ID = 105363;
-const SEPOLIA_CHAIN_ID = 11155111;
+const ARB_SEPOLIA_CHAIN_ID = 421614;
 
 const providerApiKey = process.env.PROVIDER_API_KEY;
 const privateKey = process.env.PRIVATE_KEY;
@@ -79,7 +79,7 @@ export async function nativeTokenTransfer(): Promise<void> {
         "0x0000000000000000000000000000000000000000000000000000000000000000";
     const transfer = assetTransfer.createFungibleTransfer(
         await wallet.getAddress(),
-        SEPOLIA_CHAIN_ID,
+        ARB_SEPOLIA_CHAIN_ID,
         // LUMOZ_TESTNET_CHAIN_ID,
         await wallet.getAddress(),
         RESOURCE_ID,
