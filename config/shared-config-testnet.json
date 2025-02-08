@@ -77,29 +77,29 @@
       "caipId": "eip155:105363",
       "name": "lumoz-chain-testnet",
       "type": "evm",
-      "bridge": "0x917C1a277309C0b054ACc17BB6C0106A33BfE7f5",
+      "bridge": "0x1c94D3F967bb431c1095F13C5E60b64B34E9d58A",
       "handlers": [
         {
           "type": "erc20",
-          "address": "0xe1d9dd910715Ef69Beff389d9E6cD26d2C0CD1e4"
+          "address": "0xf4C947A4eba740c4B28106e41f6721B6b1190488"
         },
         {
           "type": "erc721",
-          "address": "0x7456d9AEc1c1f2076701d2F353Ac31FD6FFe8C88"
+          "address": "0xda857366d75301B4A79d70a88308E4b5d1fdcc61"
         },
         {
           "type": "permissionlessGeneric",
-          "address": "0x5D91c3801b81559240175c7f111F73fbF998B27D"
+          "address": "0x102fD23e2D523824791A4e9EC980C7DD6f773871"
         }
       ],
-      "feeRouter": "0x376C02Aea8D4fc8f8DeD433a6D5D6a3c08b13B9B",
+      "feeRouter": "0x37e8716752a0118A81c2316BDaa6ed28397F36db",
       "feeHandlers": [
         {
-          "address": "0xb46733Fa02247371Bf9a92a507f7e50Cf385c65c",
+          "address": "0x485518b6A601718176EFe16dA026b735BfA89757",
           "type": "basic"
         },
         {
-          "address": "0x5a85356eE42F546CBeCE67cd408cd8CB3A5a789D",
+          "address": "0xE8C6B738593e97e72C90EEd15f37512DB24Fb2dA",
           "type": "twap"
         }
       ],
