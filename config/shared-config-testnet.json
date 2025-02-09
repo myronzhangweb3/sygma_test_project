@@ -68,6 +68,13 @@
           "type": "nonfungible",
           "address": "0x5d2068aDA7d5cA43f81f845BAa1EFe5a32ff0B38",
           "symbol": "LOGT"
+        },
+        {
+          "resourceId": "0x7210000000000000000000000000000000000000000000000000000000000001",
+          "caip19": "eip155:421614/erc721:0x917C1a277309C0b054ACc17BB6C0106A33BfE7f5",
+          "type": "nonfungible",
+          "address": "0x917C1a277309C0b054ACc17BB6C0106A33BfE7f5",
+          "symbol": "LOGT"
         }
       ]
     },
@@ -138,6 +145,13 @@
           "caip19": "eip155:105363/erc721:0x7bA729D2d58fdf4731dB170ad08cBC1d7642f9Aa",
           "type": "nonfungible",
           "address": "0x7bA729D2d58fdf4731dB170ad08cBC1d7642f9Aa",
+          "symbol": "LOGT"
+        },
+        {
+          "resourceId": "0x7210000000000000000000000000000000000000000000000000000000000001",
+          "caip19": "eip155:105363/erc721:0x999ecE8cE5a2DBa2ef3Db6Cf4E1098e0B4cc7547",
+          "type": "nonfungible",
+          "address": "0x999ecE8cE5a2DBa2ef3Db6Cf4E1098e0B4cc7547",
           "symbol": "LOGT"
         }
       ]
