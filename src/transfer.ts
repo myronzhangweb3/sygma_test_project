@@ -1,21 +1,8 @@
 // transfer.ts
-import { EVMAssetTransfer, Environment } from "sygma-sdk-custom-url";
-import { Wallet, providers, ethers } from "ethers";
-import dotenv from "dotenv";
+import { EVMAssetTransfer } from "sygma-sdk-custom-url";
+import { Wallet, providers } from "ethers";
 
-dotenv.config();
 
-const LUMOZ_TESTNET_CHAIN_ID = 105363;
-const ARB_SEPOLIA_CHAIN_ID = 421614;
-
-const providerApiKey = process.env.PROVIDER_API_KEY;
-const privateKey = process.env.PRIVATE_KEY;
-
-if (!providerApiKey || !privateKey) {
-    throw new Error("Missing environment variables");
-}
-
-// transfer.ts
 /**
  * Initializes the Sygma SDK asset transfer module.
  * @param provider The Ethereum provider to use.
@@ -23,33 +10,30 @@ if (!providerApiKey || !privateKey) {
  */
 async function initAssetTransfer(
     provider: providers.JsonRpcProvider,
+    configUrl: string
 ): Promise<EVMAssetTransfer> {
     const assetTransfer = new EVMAssetTransfer();
-    await assetTransfer.init(provider, "https://raw.githubusercontent.com/myronzhangweb3/sygma_test_project/refs/heads/main/config/shared-config-testnet.json");
+    await assetTransfer.init(provider, configUrl);
     return assetTransfer;
 }
 
-// transfer.ts
 /**
  * Transfers ERC20 tokens between two Ethereum networks using the Sygma SDK.
  * @returns A Promise that resolves when the transfer is complete.
  */
-export async function erc20Transfer(): Promise<void> {
-    const provider = new providers.JsonRpcProvider(providerApiKey);
+export async function erc20Transfer(rpcUrl:string, privateKey:string, sygmaConfigUrl:string, sourceChainId:number, resourceId:string, amount:number): Promise<string> {
+    const provider = new providers.JsonRpcProvider(rpcUrl);
     const wallet = new Wallet(privateKey as string, provider);
 
-    const assetTransfer = await initAssetTransfer(provider);
+    const assetTransfer = await initAssetTransfer(provider, sygmaConfigUrl);
 
     // transfer.ts
-    const RESOURCE_ID =
-        "0x0000000000000000000000000000000000000000000000000000000000000000";
     const transfer = assetTransfer.createFungibleTransfer(
         await wallet.getAddress(),
-        // SEPOLIA_CHAIN_ID,
-        LUMOZ_TESTNET_CHAIN_ID,
+        Number(sourceChainId),
         await wallet.getAddress(),
-        RESOURCE_ID,
-        5, // instructions to send 50 tokens
+        resourceId,
+        amount,
     );
 
     const fee = await assetTransfer.getFee(transfer);
@@ -66,24 +50,21 @@ export async function erc20Transfer(): Promise<void> {
     const response = await wallet.sendTransaction(
         transferTx as providers.TransactionRequest,
     );
-    console.log("Sent transfer with hash: " + response.hash);
+    return response.hash;
 }
 
-export async function nativeTokenTransfer(): Promise<void> {
-    const provider = new providers.JsonRpcProvider(providerApiKey);
+export async function nativeTokenTransfer(rpcUrl:string, privateKey:string, sygmaConfigUrl:string, sourceChainId:number, resourceId:string, amount:number): Promise<string> {
+    const provider = new providers.JsonRpcProvider(rpcUrl);
     const wallet = new Wallet(privateKey as string, provider);
 
-    const assetTransfer = await initAssetTransfer(provider);
+    const assetTransfer = await initAssetTransfer(provider, sygmaConfigUrl);
 
-    const RESOURCE_ID =
-        "0x0000000000000000000000000000000000000000000000000000000000000000";
     const transfer = assetTransfer.createFungibleTransfer(
         await wallet.getAddress(),
-        ARB_SEPOLIA_CHAIN_ID,
-        // LUMOZ_TESTNET_CHAIN_ID,
+        Number(sourceChainId),
         await wallet.getAddress(),
-        RESOURCE_ID,
-        8, // instructions to send 50 tokens
+        resourceId,
+        amount,
     );
 
     console.log("transfer:", JSON.stringify(transfer));
@@ -93,12 +74,10 @@ export async function nativeTokenTransfer(): Promise<void> {
         transfer,
         fee,
     );
-
-    // transfer value
-    transferTx.value = transferTx.value?.add(8)
+    transferTx.value = transferTx.value?.add(amount)
 
     const response = await wallet.sendTransaction(
         transferTx as providers.TransactionRequest,
     );
-    console.log("Sent transfer with hash: " + response.hash);
+    return response.hash;
 }
