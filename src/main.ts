@@ -39,20 +39,28 @@ if (!txAmount || txAmount === '') {
 }
 
 async function main(): Promise<void> {
-    try {
-        let txHash = '';
-        switch(Number(txType)){
-            case 1:
-                txHash = await nativeTokenTransfer(rpcUrl, privateKey, sygmaConfigUrl, Number(sourceChainId), targetChainId, Number(recourceId));
-                break;
-            case 2:
-                txHash = await erc20Transfer(rpcUrl, privateKey, sygmaConfigUrl, Number(sourceChainId), targetChainId, Number(recourceId));
-                break;
-        }
-        console.log(`Transfer tx hash: ${txHash}`);
-    } catch (error) {
-        console.error(error);
+    console.log("Transaction Parameters:");
+    console.log(`TX_TYPE: ${txType} (1: native transfer, 2: erc20 transfer)`);
+    console.log(`SOURCE_CHAIN_ID: ${sourceChainId}`);
+    console.log(`TARGET_CHAIN_ID: ${targetChainId}`);
+    console.log(`RESOURCE_ID: ${recourceId}`);
+    console.log(`RPC_URL: ${rpcUrl}`);
+    console.log(`PRIVATE_KEY: ${privateKey.substring(0, 6)}...${privateKey.substring(privateKey.length - 4)}`);
+    console.log(`SYGMA_CONFIG_URL: ${sygmaConfigUrl}`);
+    console.log(`TX_AMOUNT: ${txAmount}`);
+    
+    let txHash = '';
+    switch (Number(txType)) {
+        case 1:
+            console.log(`call nativeTokenTransfer`);
+            txHash = await nativeTokenTransfer(rpcUrl, privateKey, sygmaConfigUrl, Number(targetChainId), recourceId, Number(txAmount));
+            break;
+        case 2:
+            console.log(`call erc20Transfer`);
+            txHash = await erc20Transfer(rpcUrl, privateKey, sygmaConfigUrl, Number(targetChainId), recourceId, Number(txAmount));
+            break;
     }
+    console.log(`Transfer tx hash: ${txHash}`);
 }
 
 main();

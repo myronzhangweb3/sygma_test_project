@@ -21,7 +21,7 @@ async function initAssetTransfer(
  * Transfers ERC20 tokens between two Ethereum networks using the Sygma SDK.
  * @returns A Promise that resolves when the transfer is complete.
  */
-export async function erc20Transfer(rpcUrl:string, privateKey:string, sygmaConfigUrl:string, sourceChainId:number, resourceId:string, amount:number): Promise<string> {
+export async function erc20Transfer(rpcUrl:string, privateKey:string, sygmaConfigUrl:string, targetChainId:number, resourceId:string, amount:number): Promise<string> {
     const provider = new providers.JsonRpcProvider(rpcUrl);
     const wallet = new Wallet(privateKey as string, provider);
 
@@ -30,7 +30,7 @@ export async function erc20Transfer(rpcUrl:string, privateKey:string, sygmaConfi
     // transfer.ts
     const transfer = assetTransfer.createFungibleTransfer(
         await wallet.getAddress(),
-        Number(sourceChainId),
+        Number(targetChainId),
         await wallet.getAddress(),
         resourceId,
         amount,
@@ -53,7 +53,7 @@ export async function erc20Transfer(rpcUrl:string, privateKey:string, sygmaConfi
     return response.hash;
 }
 
-export async function nativeTokenTransfer(rpcUrl:string, privateKey:string, sygmaConfigUrl:string, sourceChainId:number, resourceId:string, amount:number): Promise<string> {
+export async function nativeTokenTransfer(rpcUrl:string, privateKey:string, sygmaConfigUrl:string, targetChainId:number, resourceId:string, amount:number): Promise<string> {
     const provider = new providers.JsonRpcProvider(rpcUrl);
     const wallet = new Wallet(privateKey as string, provider);
 
@@ -61,7 +61,7 @@ export async function nativeTokenTransfer(rpcUrl:string, privateKey:string, sygm
 
     const transfer = assetTransfer.createFungibleTransfer(
         await wallet.getAddress(),
-        Number(sourceChainId),
+        Number(targetChainId),
         await wallet.getAddress(),
         resourceId,
         amount,

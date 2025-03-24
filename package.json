@@ -4,8 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "native": "TX_TYPE=1 SOURCE_CHAIN_ID=1 TARGET_CHAIN_ID=2 RESOURCE_ID=0x0000000000000000000000000000000000000000000000000000000000000000 TX_AMOUNT=2 npx ts-node ./src/main.ts"
   },
   "devDependencies": {
     "dotenv": "^16.3.1",
