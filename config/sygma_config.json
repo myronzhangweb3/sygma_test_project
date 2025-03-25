@@ -57,7 +57,7 @@
         {
           "resourceId": "0x0000000000000000000000000000000000000000000000000000000000000002",
           "caip19": "eip155:11155111/erc721:0x44cDE76f09F0Bb81d16d1D9a7762A159D4F39FB7",
-          "type": "nonfungible",
+          "type": "fungible",
           "address": "0x44cDE76f09F0Bb81d16d1D9a7762A159D4F39FB7",
           "symbol": "ZKF",
           "decimals": 18
