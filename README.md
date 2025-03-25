@@ -48,18 +48,6 @@ TX_TYPE=2 SOURCE_CHAIN_ID=<source-chain-id> TARGET_CHAIN_ID=<target-chain-id> RE
 
 ### Using Predefined Scripts
 
-The project includes a predefined script for native token transfers:
-
-```bash
-yarn native
-```
-
-This command executes a transfer with the following parameters:
-- Transaction type: Native token transfer (TX_TYPE=1)
-- Source chain ID: 1 (SOURCE_CHAIN_ID=1)
-- Target chain ID: 2 (TARGET_CHAIN_ID=2)
-- Transfer amount: 2 (TX_AMOUNT=2)
-
 ## Parameter Description
 
 - `TX_TYPE`: Transaction type (1: native token transfer, 2: ERC20 token transfer)
